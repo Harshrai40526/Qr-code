@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scan for Love ♥</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--g1:#fff5f8;--g2:#ffe4ec;--g3:#fbd0dc;--glow1:#ffd6e3;--glow2:#ffc2d4;--rose:#9f1d44;--rose2:#e11d48;--ink:#292524;--sub:rgba(136,19,55,.65);--card:rgba(255,255,255,.78);--line:#fda4af;--paper1:#fffdf8;--paper2:#fff6ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--g1:#1d1016;--g2:#2a1420;--g3:#33182a;--glow1:#4a1d33;--glow2:#3b1530;--rose:#ff8fab;--rose2:#fb4f78;--ink:#f5e6ea;--sub:rgba(255,170,196,.7);--card:rgba(48,24,36,.8);--line:#7a2c47;--paper1:#2c1822;--paper2:#26151e}}
+:root[data-theme="dark"]{--g1:#1d1016;--g2:#2a1420;--g3:#33182a;--glow1:#4a1d33;--glow2:#3b1530;--rose:#ff8fab;--rose2:#fb4f78;--ink:#f5e6ea;--sub:rgba(255,170,196,.7);--card:rgba(48,24,36,.8);--line:#7a2c47;--paper1:#2c1822;--paper2:#26151e}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;background:radial-gradient(circle at 20% 10%,var(--glow1),transparent 45%),radial-gradient(circle at 85% 80%,var(--glow2),transparent 40%),linear-gradient(160deg,var(--g1),var(--g2) 50%,var(--g3));background-attachment:fixed}
+.sc{font-family:'Great Vibes',cursive,Georgia,serif;font-weight:400;color:var(--rose)}
+.k{font:12px system-ui,sans-serif;letter-spacing:.35em;text-transform:uppercase;color:var(--sub);text-align:center;margin:0}
+section{padding:60px 20px;max-width:880px;margin:0 auto;position:relative;z-index:2}
+h2{font-size:54px;margin:6px 0 34px;text-align:center;line-height:1.1}
+button{font-family:inherit;cursor:pointer}
+#fh{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.fh{position:absolute;bottom:-40px;color:#fb7185;opacity:.7;animation:up linear infinite}
+@keyframes up{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+.beat{animation:beat 1.6s ease-in-out infinite}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero .sc{font-size:56px;margin:0 0 6px}
+.hero p.s{font-size:22px;opacity:.75;margin:0 0 40px}
+.env{position:relative;width:290px;height:190px;border:0;border-radius:6px;background:#fda4af;box-shadow:0 25px 50px -12px rgba(120,20,50,.45);transition:transform .2s;perspective:800px}
+.env:hover{transform:translateY(-4px)}
+.env i{position:absolute;display:block}
+.e1{inset:0;border-radius:6px;background:linear-gradient(135deg,#fecdd3,#fda4af)}
+.e2{inset:0;clip-path:polygon(0 100%,50% 45%,100% 100%);background:#f8a5bd}
+.e3{left:0;right:0;top:0;height:50%;clip-path:polygon(0 0,100% 0,50% 100%);background:#f28aa8;transform-origin:top;transition:transform .8s ease;z-index:2}
+.env[data-o="1"] .e3{transform:rotateX(180deg)}
+.e4{left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:#be123c;color:#fff;font-size:28px;line-height:56px;text-align:center;z-index:3;font-style:normal;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.tap{margin-top:30px;font:13px system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--sub)}
+#main{display:none}
+.paper{position:relative;max-width:680px;margin:0 auto;border-radius:18px;padding:42px 28px;background:repeating-linear-gradient(transparent 0 2.1rem,rgba(176,30,74,.08) 2.1rem 2.15rem),linear-gradient(180deg,var(--paper1),var(--paper2));box-shadow:0 30px 60px -20px rgba(138,21,56,.35),0 0 0 1px rgba(138,21,56,.08);animation:fin 1s both}
+@keyframes fin{from{opacity:0;transform:translateY(30px)}}
+.paper .hb{position:absolute;top:-22px;left:50%;margin-left:-20px;font-size:40px;color:#e11d48;line-height:1}
+.paper .sc.g{font-size:44px;margin:0 0 22px}
+.paper p{font-size:21px;line-height:2.15rem;margin:0 0 2.15rem}
+.so{text-align:right;margin-top:10px}
+.so i{font-size:20px;display:block}
+.so .sc{font-size:40px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fc{height:170px;border:0;padding:0;background:none;text-align:left;perspective:1000px}
+.fi{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+.fc[data-f="1"] .fi{transform:rotateY(180deg)}
+.ff{position:absolute;inset:0;border-radius:18px;padding:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 10px 24px rgba(120,20,50,.2)}
+.fa{background:linear-gradient(135deg,#f43f5e,#be123c);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.fa small{font:13px system-ui,sans-serif;opacity:.8}
+.fa b{font:400 34px 'Great Vibes',cursive,serif}
+.fb{background:var(--card);border:1px solid var(--line);transform:rotateY(180deg);display:flex;align-items:center;font-size:20px;line-height:1.25;color:var(--rose)}
+.cps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cp{display:flex;align-items:center;gap:14px;border:2px dashed var(--line);border-radius:18px;background:var(--card);padding:18px}
+.cp>span{font-size:36px}
+.cp div{flex:1}
+.cp b{display:block;font-size:22px;color:var(--rose)}
+.cp small{font-size:15px;opacity:.7}
+.cp button,.btn{border:0;border-radius:99px;background:#e11d48;color:#fff;padding:9px 16px;font:500 14px system-ui,sans-serif}
+.cp button:disabled{background:#fecdd3;color:#881337}
+ol{list-style:none;padding:0;margin:0;max-width:640px;margin:0 auto}
+ol li{display:flex;gap:16px;align-items:flex-start;background:var(--card);border-radius:14px;padding:14px 20px;margin-bottom:14px;font-size:22px}
+ol li .sc{font-size:34px;line-height:1;width:24px;color:#e11d48}
+.bq{text-align:center;padding:90px 20px}
+.bq h2{font-size:60px;margin:12px 0 40px}
+.row{display:flex;align-items:center;justify-content:center;gap:24px;min-height:100px}
+#yes{border:0;border-radius:99px;background:#e11d48;color:#fff;font-weight:600;box-shadow:0 14px 28px rgba(120,20,50,.35)}
+#no{border:2px solid var(--line);border-radius:99px;background:var(--card);color:var(--rose);padding:12px 24px;font-size:18px;transition:transform .3s}
+.done .sc{font-size:68px;margin:0}
+.done p{font-size:26px;opacity:.85;margin-top:12px}
+.bh{position:fixed;left:50%;top:50%;color:#f43f5e;pointer-events:none;z-index:60;animation:bu 1.6s ease-out forwards}
+@keyframes bu{from{transform:translate(0,0) scale(.4);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.3);opacity:0}}
+.ft{text-align:center;padding-bottom:40px}
+.ft a,.back{font:14px system-ui,sans-serif;color:var(--sub);text-decoration:none}
+#qrp{display:none;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;padding:40px 20px;position:relative;z-index:2}
+.qc{max-width:360px;width:100%;text-align:center;border-radius:26px;padding:38px 30px}
+.qb{position:relative;width:256px;height:256px;margin:0 auto;border-radius:18px;background:#fff;padding:12px;box-shadow:inset 0 2px 6px rgba(0,0,0,.1),0 0 0 4px #fecdd3}
+#qr img,#qr canvas{width:100%!important;height:100%!important}
+.qh{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;color:#e11d48;font-size:26px;line-height:46px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+@media(max-width:640px){.grid{grid-template-columns:1fr 1fr}.cps{grid-template-columns:1fr}h2{font-size:46px}.bq h2{font-size:46px}}
+@media(prefers-reduced-motion:reduce){.fh,.beat,.bh{animation:none}}
+@media print{.np{display:none!important}}
+</style>
+</head>
+<body>
+<div id="fh" aria-hidden="true"></div>
+
+<div id="home">
+  <section class="hero" id="hero">
+    <p class="sc">Hey you…</p>
+    <p class="s">someone wrote you something special</p>
+    <button class="env" id="env" aria-label="Open the love letter"><i class="e1"></i><i class="e2"></i><i class="e3"></i><i class="e4 beat">♥</i></button>
+    <div class="tap">tap to open</div>
+  </section>
+  <div id="main">
+    <section style="padding-top:70px"><article class="paper" id="letter"></article></section>
+    <section><p class="k">tap each card</p><h2 class="sc">Reasons I love you</h2><div class="grid" id="rs"></div></section>
+    <section><p class="k">redeem anytime</p><h2 class="sc">Love coupons</h2><div class="cps" id="cps"></div></section>
+    <section><p class="k">from my heart</p><h2 class="sc">My promises</h2><ol id="pr"></ol></section>
+    <section class="bq" id="bq"></section>
+    <div class="ft"><a href="#qr">▦ Share this letter with a QR code</a></div>
+  </div>
+</div>
+
+<div id="qrp">
+  <div class="paper qc">
+    <p class="k">for my person</p>
+    <h2 class="sc" style="font-size:48px;margin:6px 0 22px">Scan for love</h2>
+    <div class="qb"><div id="qr"></div><span class="qh">♥</span></div>
+    <p style="font-size:20px;margin:22px 0 0">Point your camera here — a letter is waiting inside.</p>
+    <p class="np" style="font:13px system-ui,sans-serif;opacity:.65;margin:14px 0 0">Screenshot lo ya Print dabao.</p>
+    <p class="np" style="margin:18px 0 0"><button class="btn" onclick="window.print()">Print</button></p>
+  </div>
+  <a href="#" class="back np" style="margin-top:28px">← Back to the letter</a>
+</div>
+
+<script>
+var L={g:"My love,",p:["Some days I catch myself smiling at nothing, and then I realise it is you again, quietly living in my thoughts. You turned ordinary moments into tiny celebrations: late-night talks, silly jokes, and the way you say my name like it truly matters. With you, I feel seen, safe, and endlessly lucky.","I love your kindness, your laugh, and even your stubborn little habits. When life gets heavy, you are my calm. When it is bright, you make it brighter. I do not need a perfect world; I only need your warm hand in mine.","So here is my promise: I will choose you on easy days and hard days, in every season and every mood. I will keep learning you, cheering for you, and loving you a little more each morning.","You are my favourite hello and my hardest goodbye. My heart has a home, and it is you."],s:"Forever yours,",n:"Me ♥"};
+var R=[["Your smile","It fixes days I did not even know were broken."],["Your laugh","My favourite song, and I never skip it."],["Your kindness","You are gentle with the world, and it makes me want to be better."],["Your voice","Even a “good night” from you feels like a hug."],["Your eyes","I get lost in them and never want directions home."],["Just you","Every version of you — sleepy, grumpy, silly — is my favourite."]];
+var C=[["☕","Breakfast in bed","Redeemable any lazy morning."],["🤗","One endless hug","No time limit. Seriously."],["🎬","Movie night, your pick","I promise not to complain."],["🌙","A midnight walk","Stars, talks, and holding hands."],["💌","A surprise love note","Hidden somewhere you will find it."],["😘","Unlimited kisses","Valid forever, no expiry date."]];
+var P=["To listen, even when I think I already know.","To make you laugh on your hardest days.","To celebrate your wins louder than mine.","To hold your hand through every storm.","To keep falling for you, again and again."];
+var $=function(i){return document.getElementById(i)};
+var fh="";for(var i=0;i<18;i++)fh+='<span class="fh" style="left:'+((i*37)%100)+'%;font-size:'+(14+(i*7)%22)+'px;animation-duration:'+(9+(i*5)%9)+'s;animation-delay:'+((i*1.3)%12)+'s">♥</span>';
+$("fh").innerHTML=fh;
+$("letter").innerHTML='<span class="hb beat">♥</span><p class="sc g">'+L.g+'</p>'+L.p.map(function(t){return"<p>"+t+"</p>"}).join("")+'<div class="so"><i>'+L.s+'</i><span class="sc">'+L.n+'</span></div>';
+$("rs").innerHTML=R.map(function(r,i){return'<button class="fc"><div class="fi"><div class="ff fa"><small>#'+(i+1)+'</small><b>'+r[0]+'</b></div><div class="ff fb">'+r[1]+'</div></div></button>'}).join("");
+Array.prototype.forEach.call(document.querySelectorAll(".fc"),function(b){b.onclick=function(){b.dataset.f=b.dataset.f==="1"?"0":"1"}});
+$("cps").innerHTML=C.map(function(c){return'<div class="cp"><span>'+c[0]+'</span><div><b>'+c[1]+'</b><small>'+c[2]+'</small></div><button>Redeem</button></div>'}).join("");
+Array.prototype.forEach.call(document.querySelectorAll(".cp button"),function(b){b.onclick=function(){b.disabled=true;b.textContent="Claimed ♥"}});
+$("pr").innerHTML=P.map(function(p,i){return'<li><span class="sc">'+(i+1)+'</span><span>'+p+'</span></li>'}).join("");
+
+$("env").onclick=function(){var e=this;e.dataset.o="1";setTimeout(function(){$("hero").style.display="none";$("main").style.display="block";window.scrollTo(0,0)},900)};
+
+var d=0,labs=["No","Are you sure?","Think again!","Pretty please?","Nope, wrong button","Just say yes ♥"];
+function ask(){$("bq").innerHTML='<p class="k">one last thing</p><h2 class="sc">Will you be mine, forever?</h2><div class="row"><button id="yes" class="beat" style="padding:'+(.75+d*.12)+'rem '+(2+d*.3)+'rem;font-size:'+(1.1+d*.1)+'rem">Yes ♥</button><button id="no">'+labs[Math.min(d,5)]+'</button></div>';
+var n=$("no");n.onmouseenter=n.onclick=function(){d++;ask();var x=$("no");x.style.transform="translate("+((Math.random()-.5)*240)+"px,"+((Math.random()-.5)*140)+"px)"};
+$("yes").onclick=yes}
+function yes(){var h="";for(var i=0;i<36;i++){var a=i/36*Math.PI*2,r=180+(i*53)%220;h+='<span class="bh" style="--dx:'+Math.cos(a)*r+'px;--dy:'+Math.sin(a)*r+'px;font-size:'+(18+(i*11)%26)+'px;animation-delay:'+((i%6)*.05)+'s">♥</span>'}
+$("bq").innerHTML=h+'<div class="done"><p class="sc" style="font-size:68px;margin:0">I knew it!</p><p>You just made me the happiest person alive. I love you, always. ♥</p></div>'}
+ask();
+
+function route(){var q=location.hash==="#qr";$("home").style.display=q?"none":"block";$("qrp").style.display=q?"flex":"none";window.scrollTo(0,0);
+if(q&&!$("qr").firstChild){try{new QRCode($("qr"),{text:location.href.split("#")[0],width:232,height:232,colorDark:"#8a1538",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H})}catch(e){}}}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
